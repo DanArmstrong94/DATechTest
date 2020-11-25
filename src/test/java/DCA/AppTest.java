@@ -44,6 +44,12 @@ public class AppTest {
         assertTrue(map.get("modalLenFreq") == 2);       // Checking the most used word length is used twice 
         assertTrue(map.get("modalLen0") == 4);          // Checking the most used word length is 4, again we can see the exclaimation point is removed
 
+        File outputFile = new File("output" + file.getName());
+
+        if(outputFile.exists()){
+            outputFile.delete();
+        }
+
         file.delete();
     }
 
@@ -96,6 +102,12 @@ public class AppTest {
         assertTrue(map.get("modalLenFreq") == 1);       
         assertTrue(map.get("modalLen0") == 45);         // Checking the most used word length is 45 (only one word)
 
+        File outputFile = new File("output" + file.getName());
+
+        if(outputFile.exists()){
+            outputFile.delete();
+        }
+
         file.delete();
     }
 
@@ -127,6 +139,14 @@ public class AppTest {
         assertTrue(averageWordLength == 1);             // Checking the total word lengths is 1 (one 1 letter word)
         assertTrue(map.get("modalLenFreq") == 1);       
         assertTrue(map.get("modalLen0") == 1);          // Checking the most used word length is 1 (only one word)
+
+        
+
+        File outputFile = new File("output" + file.getName());
+
+        if(outputFile.exists()){
+            outputFile.delete();
+        }
 
         file.delete();
     }
@@ -164,6 +184,13 @@ public class AppTest {
         assertTrue(exceptionTriggered);         // If we hit this line we havent triggered our exception which is not good!
 
         map.clear();
+
+        File outputFile = new File("output" + file.getName());
+
+        if(outputFile.exists()){
+            outputFile.delete();
+        }
+
         file.delete();
     }
 
@@ -195,6 +222,12 @@ public class AppTest {
         assertTrue(averageWordLength == 3.4);           // Checking the total word lengths is 3.4, this will confirm that we have removed all punctuation
         assertTrue(map.get("modalLenFreq") == 3);       // Should be 3
         assertTrue(map.get("modalLen0") == 4);          // Checking the most used word length is 4
+
+        File outputFile = new File("output" + file.getName());
+
+        if(outputFile.exists()){
+            outputFile.delete();
+        }
 
         file.delete();
     }

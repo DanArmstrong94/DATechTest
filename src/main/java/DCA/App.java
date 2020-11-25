@@ -2,6 +2,7 @@ package DCA;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
@@ -24,7 +25,7 @@ public class App
     }
 
     private static String removePunctuation(String s){
-        
+
         if(s.endsWith(".") || s.endsWith("?") || s.endsWith("!") || s.endsWith(",") || s.endsWith(":") || s.endsWith(";") || s.endsWith("\"") || s.endsWith("\'")) 
         {
             s = s.substring(0, s.length() - 1);
@@ -87,10 +88,24 @@ public class App
 
             double averageWordLength = (double) totalWordLengths/ (double) wordCount;   // Casting to double here as we should expect some decimal places (3dp guaranteed in the print using a Decimal Format)
 
-            int highestWordLengthFreq = 0;                                              
+            int highestWordLengthFreq = 0;
+            
+            String baseFileName = new File(path).getName();
+
+            File file = new File("output" + baseFileName);
+
+            if(file.exists()){
+                file.delete();
+            }
+
+            FileWriter writer = new FileWriter(file);
+
+            writer.write("File Name: " + baseFileName + "\n");
+
             ArrayList<Integer> highestWordLength = new ArrayList<Integer>();            // This ArrayList allows us to have a dynamically allocated Array just in case we end up with multiple "highest frequency word lengths"
             for(int k=0;k<wordSizes.length;++k){                                        // This logic lets us find our modal word lengths
                 if(wordSizes[k] != 0){
+                    writer.write("Number of words of length " + (k+1) + " is " + wordSizes[k] + "\n");
                     System.out.println("Number of words of length " + (k+1) + " is " + wordSizes[k]);
                     if(wordSizes[k] > highestWordLengthFreq){                           // In this case we have a new modal length, so we reset our ArrayList
                         highestWordLengthFreq = wordSizes[k];
@@ -102,6 +117,12 @@ public class App
                     }
                 }
             }
+
+            writer.write("Word Count: " + wordCount + "\n");
+            writer.write("Average Word Length: " + df.format(averageWordLength) + "\n");
+            writer.write("The most frequently occuring word length is " + highestWordLengthFreq + ", for word length " + highestWordLength + "\n");
+            writer.write("*****************************************************************************************");
+            writer.close();
 
             System.out.println("Word Count: " + wordCount);
             System.out.println("Average Word Length: " + df.format(averageWordLength));

@@ -60,10 +60,10 @@ public class App
             /****************************************************   
                 
                 We're going to assume the following:
-                1) A word has to have at least one, English letter or number, [a-z | A-Z | 0-9], with one exception, "&".
-                2) Punctuation does not count towards the size of the word itself i.e. 25/11/2020 is a size 10 word.
+                1) A word has to have at least one, English letter, number, or ampersand, [a-z | A-Z | 0-9 | &].
+                2) Punctuation does not count towards the size of the word itself i.e. Test! is 4 letters long.
                 3) The longest english word in a major dictionary (albeit contrived) is 45 letters long.
-                4) Apostrophes within words and at the end of words will count towards the length of said word
+                4) Apostrophes within words, and punctuation in date formatted numbers, will count towards the length of said word i.e. 25/11/2020 is a size 10 word and Daniel's is a size 8 word.
 
             *****************************************************/
 

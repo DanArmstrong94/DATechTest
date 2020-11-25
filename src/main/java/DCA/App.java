@@ -67,21 +67,21 @@ public class App
 
             *****************************************************/
 
-            int wordCount = 0;                                              // Cumulative word count
-            int totalWordLengths = 0;                                       // Cumulative length of all the words
-            int[] wordSizes = initialiseArray(new int[45]);                 // Longest word in the bible is 21 letters (Maher-shalal-hash-baz) although this is often shortened to 18 by removal of hyphens
-                                                                            // We'll allow for the largest possible word from the oxford dictionary (45 letters)
+            int wordCount = 0;                                                          // Cumulative word count
+            int totalWordLengths = 0;                                                   // Cumulative length of all the words
+            int[] wordSizes = initialiseArray(new int[45]);                             // Longest word in the bible is 21 letters (Maher-shalal-hash-baz) although this is often shortened to 18 by removal of hyphens
+                                                                                        // We'll allow for the largest possible word from the oxford dictionary (45 letters)
 
-            for (String line = null; (line = br.readLine()) != null;){      // We'll read in one line at a time from a buffered reader, this should save time
-                String[] array = line.split(" ", -1);                       // Split on White Space
-                for (int i=0; i<array.length ; ++i)                         // Iterate over all the words in the line (now separated into an array of size equal to the number of words in the line)
+            for (String line = null; (line = br.readLine()) != null;){                  // We'll read in one line at a time from a buffered reader, this should save time
+                String[] array = line.split(" ", -1);                                   // Split on White Space
+                for (int i=0; i<array.length ; ++i)                                     // Iterate over all the words in the line (now separated into an array of size equal to the number of words in the line)
                 {
-                    array[i] = removePunctuation(array[i]);                 // Strip out any punctuation from the end of our words
+                    array[i] = removePunctuation(array[i]);                             // Strip out any punctuation from the end of our words
                     int wordLength = array[i].length();
-                    if (wordLength >= 1 && !array[i].equals("*******")){    // This is more of a guard to stop any "words" that might reach here of 0 length - shouldn't happen but lets be sure, and also ignores the "*******"'s we get on each date
-                        ++wordCount;                                        // +1 to word count
-                        ++wordSizes[wordLength - 1];                        // +1 to words of this size
-                        totalWordLengths += wordLength;                     // We want to track the total length of all words together for our average later
+                    if (wordLength >= 1 && array[i].matches(".*[a-zA-Z0-9&].*")){       // This is more of a guard to stop any "words" that might reach here of 0 length - shouldn't happen but lets be sure.
+                        ++wordCount;                                                    // +1 to word count
+                        ++wordSizes[wordLength - 1];                                    // +1 to words of this size
+                        totalWordLengths += wordLength;                                 // We want to track the total length of all words together for our average later
                     }
                 }
             }

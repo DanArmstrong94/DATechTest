@@ -1,0 +1,12 @@
+File Name: testingSmallParts.txt
+Number of words of length 1 is 1
+Number of words of length 2 is 2
+Number of words of length 3 is 2
+Number of words of length 4 is 2
+Number of words of length 5 is 4
+Number of words of length 6 is 1
+Number of words of length 7 is 3
+Word Count: 15
+Average Word Length: 4.4
+The most frequently occuring word length is 4, for word length [5]
+*****************************************************************************************

@@ -1,0 +1,23 @@
+File Name: Bible.txt
+Number of words of length 1 is 18639
+Number of words of length 2 is 131843
+Number of words of length 3 is 221254
+Number of words of length 4 is 175407
+Number of words of length 5 is 95578
+Number of words of length 6 is 52911
+Number of words of length 7 is 40801
+Number of words of length 8 is 25294
+Number of words of length 9 is 16849
+Number of words of length 10 is 7564
+Number of words of length 11 is 3889
+Number of words of length 12 is 1714
+Number of words of length 13 is 882
+Number of words of length 14 is 352
+Number of words of length 15 is 93
+Number of words of length 16 is 17
+Number of words of length 17 is 4
+Number of words of length 18 is 3
+Word Count: 793094
+Average Word Length: 4.086
+The most frequently occuring word length is 221254, for word length [3]
+*****************************************************************************************

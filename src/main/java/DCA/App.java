@@ -24,10 +24,17 @@ public class App
     }
 
     private static String removePunctuation(String s){
-        if(s.endsWith(".") || s.endsWith("?") || s.endsWith("!") || s.endsWith(",") || s.endsWith(":") || s.endsWith(";")) 
+        
+        if(s.endsWith(".") || s.endsWith("?") || s.endsWith("!") || s.endsWith(",") || s.endsWith(":") || s.endsWith(";") || s.endsWith("\"") || s.endsWith("\'")) 
         {
             s = s.substring(0, s.length() - 1);
         }
+
+        if(s.startsWith("\"") || s.startsWith("\'"))
+        {
+            s = s.substring(1);
+        }
+
         return s;
     }
 
